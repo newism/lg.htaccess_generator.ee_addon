@@ -8,7 +8,7 @@
 					<?php echo str_replace("{addon_name}",  $this->name, $LANG->line("enable_extension_label")); ?>
 				</th>
 				<td>
-					<?php print Morphine_Display::select_box(
+					<?php print $this->select_box(
 						$settings["enabled"],
 						array("1" => "yes", "0" => "no"),
 						"Lg_htaccess_generator_ext[enabled]"

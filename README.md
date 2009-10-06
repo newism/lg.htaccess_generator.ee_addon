@@ -31,8 +31,8 @@ Automatic update is currently disabled for this version. To update:
 * Delete all references to Lg\_htaccess\_generator\_ext from the exp_extensions db table by running the following sql:  
 <code>DELETE FROM `exp_extensions` WHERE `class` = 'Lg\_htaccess\_generator\_ext'</code>
 * Remove:
-	* <code>system/extensions/ext.lg\_htaccess\_generator.ext</code>
-	* <code>system/languages/english/lang.lg\_htaccess\_generator.ext</code>
+	* <code>system/extensions/ext.lg\_htaccess\_generator\_ext.php</code>
+	* <code>system/languages/english/lang.lg\_htaccess\_generator\_ext.php</code>
 * Install as normal
 
 .htaccess Template variables

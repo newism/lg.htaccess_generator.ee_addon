@@ -1,9 +1,9 @@
 LG .htaccess Generator - _Easily remove index.php from your ExpressionEngine URLs_
 ================================================================================
 
-**This ExpressionEngine addon requires Morphine (the painless ExpressionEngine framework) for styles. Grab the latest version of Morphine from [http://github.com/newism/nsm.morphine.ee_addon](http://github.com/newism/nsm.morphine.ee_addon) and follow the readme instructions to install.**
+**This addon is for testing purposes only and is considered a public beta and should be used for testing purposes only!!!**.
 
-**This addon is for testing purposes only and is considered a public beta**
+**This ExpressionEngine addon requires Morphine (the painless ExpressionEngine framework) _for CP styles)_. Grab the latest version of Morphine from [http://github.com/newism/nsm.morphine.ee_addon](http://github.com/newism/nsm.morphine.ee_addon) and follow the readme instructions to install.**
 
 LG .htaccess Generator Multi-Site Manager compatible ExpressionEngine extension that automatically generates and updates your sites .htaccess file every time an entry, template group or template is created or modified.
 
@@ -19,7 +19,7 @@ Installation
 * Install and activate Morphine (the painless ExpressionEngine framework) available from: [http://github.com/newism/nsm.morphine.ee_addon](http://github.com/newism/nsm.morphine.ee_addon)
 * Copy all the downloaded folders into your EE install. Note: you may need to change the <code>system</code> folder to match your EE installation
 * Activate the LG. htaccess extension.
-* Check the .htaccess template and adjust as nessecary
+* Check the .htaccess template and adjust as necessary
 
 Updating from 1.0.0
 -------------------

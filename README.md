@@ -10,7 +10,8 @@ LG .htaccess Generator Multi-Site Manager compatible ExpressionEngine extension 
 Requirements
 ------------
 
-* **ExpressionEngie**: NSM Quarantine requires ExpressionEngine 1.6.8+. New version update notifications will only be displayed if LG Addon Updater is installed.
+* **Morphine**: Morphine (the painless ExpressionEngine framework) is required for CP styles. Grab the latest version of Morphine from [http://github.com/newism/nsm.morphine.ee_addon](http://github.com/newism/nsm.morphine.ee_addon) and follow the readme instructions to install.
+* **ExpressionEngine**: NSM Quarantine requires ExpressionEngine 1.6.8+. New version update notifications will only be displayed if LG Addon Updater is installed.
 * **Server**: Your server must be running PHP5+ or greater on a Linux flavoured OS.
 
 Installation
@@ -46,3 +47,8 @@ The .htaccess rules will be added to your .htaccess file after the following spe
 * <code>{ee:404}</code> is replaced with the sites 404 path ie: site/404.
 
 Read more about the "Include List Method" of removing your sites index.php on the [ExpressionEngine Wiki](http://expressionengine.com/index.php?affiliate=newism&page=wiki/Remove_index.php_From_URLs/#Include_List_Method).
+
+TODO
+----
+
+* Remove Morphine dependency

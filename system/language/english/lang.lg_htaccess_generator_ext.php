@@ -26,19 +26,20 @@ $L = array(
 
 'success_extension_settings_saved'	=> 'Extension settings saved successfully',
 
-'htaccess_options_title'	=> '.htaccess generation options',
-'htaccess_options_info'		=> '<p>LG .htaccess Generator requires that an existing .htaccess file exists and is writable. If the file contains existing rules these will not be modified.</p>
-								<p style="margin-top:9px">The rules below will be added to your .htaccess file after the following special tags are replaced:</p>
+'htaccess_options_title'	=> '.htaccess configuration',
+'htaccess_options_info'		=> '<p>LG .htaccess Generator requires that an existing .htaccess file exists and is writable. Non LG .htacess rules these will not be modified by this extension.</p>
+								<p style="margin-top:9px">The tgas below will be replaced with their associated values in the .htaccess template:</p>
 								<ul>
 									<li><strong><code>{ee:template_groups}</code></strong> will be replaced with a pipe delimited list of this sites template groups</li>
 									<li><strong><code>{ee:pages}</code></strong> will be replaced with a pipe delimited list of this sites page urls</li>
 									<li><strong><code>{ee:404}</code></strong> will be replaced with the sites 404 path ie: site/404</li>
 								</ul>
-								<p>Read more about the "include method" of removing your sites index.php on the <a rel="external" target="_blank" href="http://expressionengine.com/index.php?affiliate=leevi&amp;page=/wiki/Remove_index.php_From_URLs/#Include_List_Method">ExpressionEngine Wiki</a>.',
+								<p>Read more about the "include method" of removing your sites index.php on the <a rel="external" target="_blank" href="http://expressionengine.com/index.php?affiliate=leevi&amp;page=/wiki/Remove_index.php_From_URLs/#Include_List_Method">ExpressionEngine Wiki</a>.</p>
+								<p>If you are using the Pages or Structure module make sure you add: <code>{ee:pages}</code> into the include string after <code>{ee:template_groups}</code>. If you are not using the Pages or Structure module remove this tag.</p>',
 
-'htaccess_path_label'		=> '.htaccess path',
+'htaccess_path_label'		=> '.htaccess server path',
 'htaccess_path_info'		=> 'Must be writable by the server',
-'htaccess_template_label'	=> ".htaccess rules",
+'htaccess_template_label'	=> ".htaccess template",
 
 'htaccess_generated'		=> 'Your .htaccess file has been generated successfully.',
 

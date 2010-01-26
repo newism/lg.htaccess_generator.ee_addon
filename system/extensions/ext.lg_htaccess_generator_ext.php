@@ -801,5 +801,41 @@ RewriteRule (.*) /index.php?$1&%{QUERY_STRING} [L]');
 		else if ($param !== NULL && $default !== NULL)
 			$param = $default;
 	}
+	
+	public function array_ascii_to_entities($vals)
+	{
+		if (is_array($vals))
+		{
+			foreach ($vals as &$val)
+			{
+				$val = $this->array_ascii_to_entities($val);
+			}
+		}
+		else
+		{
+			global $REGX;
+			$vals = $REGX->ascii_to_entities($vals);
+		}
+
+		return $vals;
+	}
+
+	public function array_entities_to_ascii($vals)
+	{
+		if (is_array($vals))
+		{
+			foreach ($vals as &$val)
+			{
+				$val = $this->array_entities_to_ascii($val);
+			}
+		}
+		else
+		{
+			global $REGX;
+			$vals = $REGX->entities_to_ascii($vals);
+		}
+
+		return $vals;
+	}
 }
 ?>

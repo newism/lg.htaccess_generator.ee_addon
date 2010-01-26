@@ -111,6 +111,7 @@ RewriteRule ^(.*)$ $1/ [L,R=301]
 RewriteCond %{QUERY_STRING} !^(ACT=.*)$ [NC]
 RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5})$
 RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} ^/({ee:template_groups}{ee:pages}members|P[0-9]{2,8}) [NC]
 RewriteRule (.*) /index.php?$1&%{QUERY_STRING} [L]');
 

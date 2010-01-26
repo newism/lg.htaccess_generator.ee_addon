@@ -49,14 +49,19 @@
 
 <!-- CHECK FOR UPDATES -->
 <div class="tg">
-	<h2><?php echo $LANG->line("check_for_updates_title") ?></h2>
+	<h2><?php echo $LANG->line("check_for_updates_title"); ?></h2>
 	<div class="info"><?php echo str_replace("{addon_name}", $this->name, $LANG->line("check_for_updates_info")); ?></div>
 	<table>
 		<tbody>
 			<tr class="even">
 				<th><?php echo $LANG->line("check_for_updates_label") ?></th>
 				<td>
-					<select<?php if(!$lgau_enabled) : ?> disabled="disabled"<?php endif; ?> name="Lg_htaccess_generator_ext[check_for_updates]">
+					<select
+						<?php if(!$lgau_enabled) : ?>
+							disabled="disabled"
+						<?php endif; ?>
+						name="Lg_htaccess_generator_ext[check_for_updates]
+					">
 						<option value="1"<?php echo ($settings["check_for_updates"] == TRUE && $lgau_enabled === TRUE) ? 'selected="selected"' : ''; ?>>
 							<?php echo $LANG->line("yes") ?>
 						</option>
@@ -68,7 +73,7 @@
 						&nbsp;
 						<span class='highlight'>LG Addon Updater is not installed and activated.</span>
 						<input type="hidden" name="Lg_htaccess_generator_ext[check_for_updates]" value="0" />
-					<? endif; ?>
+					<?php endif; ?>
 				</td>
 			</tr>
 		</tbody>

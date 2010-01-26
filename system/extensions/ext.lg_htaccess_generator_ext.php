@@ -612,8 +612,9 @@ RewriteRule (.*) /index.php?$1&%{QUERY_STRING} [L]');
 			return $response;
 		}
 
-		$file = $dir . ".htaccess";
-		if(($fp = @fopen($file, 'r+b')) === FALSE)
+		$file = $dir . (($PREFS->ini("lg_htaccess_filename")) ? $PREFS->ini("lg_htaccess_filename") : ".htaccess");
+
+		if(($fp = fopen($file, 'a+')) === FALSE)
 		{
 			$response['msg'] = $LANG->line("htaccess_not_writable");
 			return $response;

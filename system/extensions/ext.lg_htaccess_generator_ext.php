@@ -156,6 +156,7 @@ RewriteRule (.*) /index.php?$1&%{QUERY_STRING} [L]');
 	{
 		global $IN, $SESS;
 		if(isset($SESS->cache['lg_htaccess_generator']) === FALSE){ $SESS->cache['lg_htaccess_generator'] = array();}
+		if(isset($SESS->cache['Morphine']) === FALSE) $SESS->cache['Morphine'] = array();
 		$this->settings = ($settings == FALSE) ? $this->get_settings() : $this->save_settings_to_session($settings);
 	}
 
@@ -425,8 +426,17 @@ RewriteRule (.*) /index.php?$1&%{QUERY_STRING} [L]');
 	 */
 	public function show_full_control_panel_end($out)
 	{
-		global $IN;
+		global $IN, $PREFS, $SESS;
 		$this->get_last_call($out);
+
+		if(isset($SESS->cache['Morphine']['cp_styles_included']) === FALSE)
+		{
+			$css = "\n<link rel='stylesheet' type='text/css' media='screen' href='" . $PREFS->ini('theme_folder_url', 1) . "cp_themes/".$PREFS->ini('cp_theme')."/Morphine/css/MOR_screen.css' />";
+			$out = str_replace("</head>", $css . "</head>", $out);
+			$SESS->cache['Morphine']['cp_styles_included'] = TRUE;
+		}
+
+
 		if (session_id() == "") session_start();
 		if(isset($_SESSION['lg_htaccess_generator']['response']))
 		{

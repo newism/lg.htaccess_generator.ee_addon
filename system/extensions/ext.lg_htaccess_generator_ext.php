@@ -671,7 +671,6 @@ RewriteRule (.*) /index.php?$1&%{QUERY_STRING} [L]');
 		}
 
 		$new_htaccess = str_replace("{ee:404}", $PREFS->ini("site_404"), $new_htaccess);
-		$new_htaccess = str_replace($hash, '$', $new_htaccess);
 
 		$htaccess = (strpos($old_htaccess, "# -- LG .htaccess Generator Start --") !== FALSE)
 						? preg_replace("/# -- LG \.htaccess Generator Start --.*?# -- LG \.htaccess Generator End --/s", $new_htaccess, $old_htaccess)
@@ -680,7 +679,7 @@ RewriteRule (.*) /index.php?$1&%{QUERY_STRING} [L]');
 		// open the file again for reading and writing
 		$fp = fopen($file, 'w+b');
 		flock($fp, LOCK_EX);
-		if(fwrite($fp, $htaccess))
+		if(fwrite($fp, str_replace($hash, '$', $htaccess)))
 		{
 			$response['success'] = TRUE;
 			$response['msg'] = $LANG->line('htaccess_generated');

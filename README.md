@@ -144,6 +144,7 @@ Automatic update is currently disabled for this version. To update:
 * Added Morphine CP theme addon styles
 * Rewrote parts of the extension
 * Added `lg_htaccess_filename` configuration variable for non .htacess files.
+* `{ee:template_groups}` and `{ee:pages}` no have a pipe "|" appended if the string is not empty
 
 #### 1.0.0
 

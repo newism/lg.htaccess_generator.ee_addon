@@ -393,7 +393,8 @@ RewriteRule (.*) /index.php?$1&%{QUERY_STRING} [L]');
 	public function submit_new_entry_end($entry_id)
 	{
 		global $IN, $LANG, $OUT, $PREFS;
-		if($this->settings[$PREFS->ini("site_id")]['enabled'] == TRUE)
+		$site_id = $PREFS->ini("site_id");
+		if($this->settings[$site_id]['enabled'] == TRUE)
 		{
 			if (
 				$IN->GBL('pages_uri', 'POST') !== FALSE
@@ -402,8 +403,13 @@ RewriteRule (.*) /index.php?$1&%{QUERY_STRING} [L]');
 				&& is_numeric($IN->GBL('pages_template_id', 'POST'))
 			)
 			{
-				$PREFS->core_ini['site_pages']['uris'][$entry_id] = $IN->GBL('pages_uri', 'POST');
-				$PREFS->core_ini['site_pages']['templates'][$entry_id] = $IN->GBL('pages_template_id', 'POST');
+
+				$pages = $PREFS->ini('site_pages');
+				if($PREFS->ini("app_version") > 168) 
+					$pages = $pages[$PREFS->ini("site_id")];
+
+				$pages['uris'][$entry_id] = $IN->GBL('pages_uri', 'POST');
+				$pages['templates'][$entry_id] = $IN->GBL('pages_template_id', 'POST');
 				if (session_id() == "") session_start(); // if no active session we start a new one
 				$_SESSION['lg_htaccess_generator']['response'] = $this->generate_htaccess();
 			}
@@ -646,7 +652,13 @@ RewriteRule (.*) /index.php?$1&%{QUERY_STRING} [L]');
 		// replace pages
 		if(strpos($new_htaccess, "{ee:pages}") !== FALSE)
 		{
-			if(($pages = $PREFS->ini('site_pages')) !== FALSE)
+
+			$pages = $PREFS->ini('site_pages');
+
+			if($PREFS->ini("app_version") > 168) 
+				$pages = $pages[$PREFS->ini("site_id")];
+
+			if($pages !== FALSE)
 			{
 				$page_roots = array();
 				

@@ -660,6 +660,23 @@ RewriteRule (.*) /index.php?$1&%{QUERY_STRING} [L]');
 
 			if($pages !== FALSE)
 			{
+			  
+			  /* @danott Fork
+			   * Compatability with EE 1.6.9+
+			   *
+			   * The format of the 'site_pages' field changed in the DB with the release of 1.6.9, to reflect the
+			   * format usied in EE2. This is noted on line 36 of ./system/updates/ud_169.php with EE 1.6.9+.
+			   *
+			   * Since the format of the 'site_pages' field has changed, there is now a wrapping array when
+			   * we grab it using $PREFS->ini(). This simple logic grabs what LG .htaccess Generator was
+			   * expecting to work with in the first place for versions where the format has changed.
+			   */
+			  if (version_compare(APP_VER, '1.6.9', '>='))
+			  {
+			    $pages = $pages[1];
+			  }
+			  /* end @danott Fork */
+			  
 				$page_roots = array();
 				
 				foreach ($pages['uris'] as $page_id => $page_url)
